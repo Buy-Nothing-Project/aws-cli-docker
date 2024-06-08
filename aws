@@ -73,7 +73,8 @@ aws rds reboot-db-instance \
 
 # get rsa info
 aws rds describe-db-instances \
-    --db-instance-identifier $db_instance_identifier | grep DBInstanceStatus
+    --no-cli-pager \
+    --db-instance-identifier $db_instance_identifier 2>&1 | grep DBInstanceStatus
 
 # get rds status
 aws rds describe-db-instances \
